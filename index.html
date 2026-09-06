@@ -1,98 +1,271 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Studio - Nền tảng Công Cụ AI Sáng Tạo Nội Dung</title>
-    <meta name="description" content="AI Studio cung cấp bộ công cụ AI mạnh mẽ: tách chữ từ video, tạo kịch bản viral youtube tiktok, tạo video AI tự động, tạo giọng nói AI. Giúp tự động hóa công việc sáng tạo.">
-    <meta name="keywords" content="công cụ ai, tạo video ai, tách chữ từ video, kịch bản tiktok, giọng nói ai, ai studio">
-    <meta property="og:title" content="AI Studio - Nền tảng Công Cụ AI Sáng Tạo Nội Dung">
-    <meta property="og:description" content="Khám phá bộ công cụ AI giúp bạn sản xuất hàng trăm video và kịch bản marketing mỗi ngày một cách tự động.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aistudiomape.us/">
-    <link rel="canonical" href="https://aistudiomape.us/" />
+    <title>AI Studio - Nền tảng Công Cụ AI Sáng Tạo Nội Dung Đỉnh Cao</title>
+    <meta name="description" content="AI Studio cung cấp bộ công cụ AI mạnh mẽ: tách chữ từ video, tạo kịch bản viral, tạo video tự động. Giúp bạn tự động hóa công việc sáng tạo nội dung.">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { primary: '#1A73E8', dark: '#0F172A' }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1A73E8; color: white; }
-        .hero-pattern { background-image: radial-gradient(circle at center, rgba(255,255,255,0.1) 0, transparent 100%); }
+        .gradient-text { background: linear-gradient(to right, #3b82f6, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-bg { background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1) 0%, transparent 40%), radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1) 0%, transparent 40%); }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }
     </style>
 </head>
-<body class="min-h-screen flex flex-col hero-pattern">
+<body class="font-sans text-slate-600 antialiased bg-slate-50">
+
     <!-- Navbar -->
-    <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between w-full">
-        <div class="flex items-center gap-3 font-bold text-2xl tracking-tight cursor-pointer">
-            <div class="bg-white text-[#1A73E8] p-2 rounded-lg flex items-center justify-center">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="#" class="flex items-center gap-2 font-bold text-2xl text-slate-900 tracking-tight">
+                    <div class="bg-primary text-white p-2 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    AI Studio
+                </a>
+                <div class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="#features" class="hover:text-primary transition">Tính năng</a>
+                    <a href="#how-it-works" class="hover:text-primary transition">Cách hoạt động</a>
+                    <a href="#pricing" class="hover:text-primary transition">Bảng giá</a>
+                    <a href="/blog" class="hover:text-primary transition">Blog SEO</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="https://app.aistudiomape.us/login" class="hidden md:block px-5 py-2.5 text-slate-600 font-semibold rounded-lg hover:bg-slate-100 transition">
+                        Đăng nhập
+                    </a>
+                    <a href="https://app.aistudiomape.us/register" class="px-5 py-2.5 bg-primary text-white font-bold rounded-lg hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">
+                        Bắt đầu miễn phí
+                    </a>
+                </div>
             </div>
-            AI Studio
-        </div>
-        <div class="flex items-center gap-2">
-            <a href="https://app.aistudiomape.us/login" class="px-5 py-2.5 text-white font-semibold rounded-lg hover:bg-blue-600/50 transition">
-                Đăng nhập
-            </a>
-            <a href="https://app.aistudiomape.us/register" class="px-5 py-2.5 bg-white text-[#1A73E8] font-bold rounded-lg hover:bg-blue-50 transition shadow-lg">
-                Đăng ký
-            </a>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center justify-center px-6 text-center max-w-4xl mx-auto py-20">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 border border-white/30 backdrop-blur-sm text-sm font-medium mb-8">
-            <i class="fa-solid fa-bolt text-yellow-300"></i> Nâng cấp tốc độ sáng tạo của bạn lên 10x
-        </div>
-        
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-8">
-            Nền tảng Công cụ AI <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">Tạo Video Tự Động</span>
-        </h1>
-        
-        <p class="text-lg md:text-xl text-blue-100 mb-12 max-w-2xl leading-relaxed">
-            Sở hữu ngay 10+ công cụ Trí tuệ Nhân tạo chuyên biệt giúp bạn tách văn bản từ video, viết kịch bản viral, và tạo video tự động 100% chỉ bằng vài cú click chuột.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 mb-20 w-full sm:w-auto">
-            <a href="https://app.aistudiomape.us/login" class="px-8 py-4 bg-white text-[#1A73E8] text-lg font-bold rounded-xl hover:scale-105 transition shadow-[0_0_40px_rgba(255,255,255,0.3)] flex items-center justify-center gap-3">
-                <i class="fa-solid fa-rocket"></i> Bắt đầu sử dụng miễn phí
-            </a>
-            <a href="https://aistudiomape.us/blog" class="px-8 py-4 bg-blue-700/50 border border-blue-400/50 text-white text-lg font-bold rounded-xl hover:bg-blue-600/50 transition flex items-center justify-center gap-3">
-                <i class="fa-solid fa-book-open"></i> Đọc hướng dẫn (Blog)
-            </a>
-        </div>
-
-        <!-- Features Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-left">
-            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition cursor-default">
-                <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-xl mb-4 shadow-inner">
-                    <i class="fa-solid fa-file-audio"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2">Tách văn bản Video</h3>
-                <p class="text-blue-100 text-sm">Chuyển đổi bất kỳ video Tiktok, Youtube nào thành văn bản với độ chính xác cao.</p>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-bg bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-primary text-sm font-semibold mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+                Phiên bản AI Studio 2.0 đã ra mắt!
             </div>
             
-            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition cursor-default">
-                <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center text-xl mb-4 shadow-inner">
-                    <i class="fa-solid fa-pen-nib"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-2">Viết kịch bản Viral</h3>
-                <p class="text-blue-100 text-sm">AI tự động phân tích và sáng tạo các kịch bản video thu hút triệu lượt xem dễ dàng.</p>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-tight mb-8">
+                Tự động hóa 90% công việc<br class="hidden md:block" />
+                <span class="gradient-text">Sáng tạo Nội dung</span>
+            </h1>
+            
+            <p class="text-xl text-slate-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Nền tảng All-in-One giúp bạn bóc băng video, viết kịch bản viral, tạo giọng đọc AI và sản xuất video tự động chỉ trong vài phút. Không cần kỹ năng chỉnh sửa!
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://app.aistudiomape.us/register" class="px-8 py-4 bg-slate-900 text-white text-lg font-bold rounded-xl hover:bg-slate-800 transition shadow-xl flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-rocket"></i> Tạo tài khoản ngay
+                </a>
+                <a href="#how-it-works" class="px-8 py-4 bg-white border border-slate-200 text-slate-700 text-lg font-bold rounded-xl hover:bg-slate-50 transition flex items-center justify-center gap-3">
+                    <i class="fa-regular fa-circle-play"></i> Xem cách hoạt động
+                </a>
             </div>
+            
+            <p class="mt-6 text-sm text-slate-400">Không yêu cầu thẻ tín dụng • Hủy bất cứ lúc nào</p>
 
-            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition cursor-default">
-                <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-xl mb-4 shadow-inner">
-                    <i class="fa-solid fa-robot"></i>
+            <!-- Mockup Dashboard Image (Placeholder) -->
+            <div class="mt-20 relative max-w-5xl mx-auto">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30"></div>
+                <div class="relative bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden aspect-video flex items-center justify-center bg-slate-50">
+                    <div class="text-center">
+                        <i class="fa-solid fa-laptop-code text-6xl text-slate-300 mb-4"></i>
+                        <p class="text-slate-400 font-medium">Giao diện Bảng điều khiển Trực quan</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-2">Tạo Video AI 100%</h3>
-                <p class="text-blue-100 text-sm">Nhập nội dung, hệ thống sẽ tự động ghép ảnh, hiệu ứng và giọng đọc AI thành video hoàn chỉnh.</p>
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer class="py-6 text-center text-blue-200 text-sm border-t border-white/10 mt-auto">
-        &copy; 2026 AI Studio. Tất cả các quyền được bảo lưu.
+    <!-- Social Proof -->
+    <section class="py-10 border-y border-slate-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-6">ĐƯỢC TIN DÙNG BỞI HÀNG NGÀN NHÀ SÁNG TẠO TRÊN CÁC NỀN TẢNG</p>
+            <div class="flex flex-wrap justify-center gap-12 text-slate-300 text-4xl">
+                <i class="fa-brands fa-tiktok hover:text-slate-800 transition"></i>
+                <i class="fa-brands fa-youtube hover:text-red-600 transition"></i>
+                <i class="fa-brands fa-facebook hover:text-blue-600 transition"></i>
+                <i class="fa-brands fa-instagram hover:text-pink-600 transition"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-primary font-bold tracking-wide uppercase text-sm mb-3">TÍNH NĂNG VƯỢT TRỘI</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Thay thế cả một đội ngũ Marketing</h3>
+                <p class="text-lg text-slate-500">Mọi công cụ bạn cần để xây dựng kênh Tiktok, Youtube triệu view đều được tích hợp sẵn trên một màn hình duy nhất.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-file-audio"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Tách Văn Bản từ Video (STT)</h4>
+                    <p class="text-slate-500 leading-relaxed">Chỉ cần dán link Tiktok/Youtube, AI của chúng tôi sẽ tự động bóc tách kịch bản siêu chuẩn xác trong 10 giây. Không cần nghe chép lại!</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Sáng Tạo Kịch Bản Viral</h4>
+                    <p class="text-slate-500 leading-relaxed">AI được huấn luyện từ hàng vạn video triệu view. Nó biết cách viết tiêu đề giật tít, mở bài cuốn hút và giữ chân người xem tới giây cuối.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-xl transition duration-300 group">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition">
+                        <i class="fa-solid fa-clapperboard"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-900 mb-3">Tạo Video Tự Động 100%</h4>
+                    <p class="text-slate-500 leading-relaxed">Biến kịch bản văn bản thành video hoàn chỉnh với giọng đọc AI truyền cảm, tự động ghép ảnh và hiệu ứng. Sản xuất công nghiệp hàng chục video/ngày.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6">Sáng tạo nội dung chưa bao giờ dễ đến thế</h2>
+                    <p class="text-lg text-slate-500 mb-8">Quy trình 3 bước đơn giản giúp bạn biến ý tưởng thành video hoàn chỉnh mà không cần biết dùng Premiere, Capcut hay bất kỳ phần mềm phức tạp nào.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center">1</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">Cung cấp Ý tưởng / Link gốc</h4>
+                                <p class="text-slate-500">Dán link video đối thủ để xào lại kịch bản, hoặc gõ 1 câu ý tưởng của bạn.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center">2</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">AI Sáng tạo Nghệ thuật</h4>
+                                <p class="text-slate-500">Hệ thống xử lý kịch bản, lồng tiếng AI MC, và tự chọn video minh họa phù hợp.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center">3</div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-1">Tải xuống & Đăng tải</h4>
+                                <p class="text-slate-500">Xuất video HD, tải về máy và đăng lên các nền tảng MXH để hái ra tiền.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute inset-0 bg-blue-100 rounded-3xl transform rotate-3 scale-105"></div>
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Video Creator App" class="relative rounded-3xl shadow-xl border border-slate-200">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing (Static) -->
+    <section id="pricing" class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Đầu tư nhỏ, Lợi nhuận khổng lồ</h2>
+            <p class="text-lg text-slate-400 mb-16 max-w-2xl mx-auto">Chọn gói phù hợp với nhu cầu sản xuất nội dung của bạn. Chi phí chỉ bằng 1/10 thuê Editor.</p>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+                <!-- Basic Plan -->
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                    <h3 class="text-2xl font-bold mb-2">Gói Cơ Bản (Theo tháng)</h3>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-5xl font-extrabold">20$</span>
+                        <span class="text-slate-400">/ tháng</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Mở khóa toàn bộ công cụ AI</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Hỗ trợ kỹ thuật 24/7</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Thanh toán linh hoạt hàng tháng</li>
+                    </ul>
+                    <a href="https://app.aistudiomape.us/register" class="block w-full py-3 px-4 bg-slate-700 hover:bg-slate-600 text-center font-bold rounded-lg transition">Bắt đầu ngay</a>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="bg-gradient-to-b from-primary to-blue-800 rounded-2xl p-8 border border-blue-500 relative transform md:-translate-y-4 shadow-2xl">
+                    <div class="absolute top-0 right-8 transform -translate-y-1/2">
+                        <span class="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Tiết kiệm 50%</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Gói Pro (Theo năm)</h3>
+                    <div class="flex items-baseline gap-2 mb-6">
+                        <span class="text-5xl font-extrabold">10$</span>
+                        <span class="text-blue-200">/ tháng (Thanh toán cả năm)</span>
+                    </div>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Mở khóa toàn bộ công cụ AI</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Hỗ trợ kỹ thuật ưu tiên (VIP)</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Truy cập sớm các tính năng mới</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Tiết kiệm tối đa chi phí dài hạn</li>
+                    </ul>
+                    <a href="https://app.aistudiomape.us/register" class="block w-full py-3 px-4 bg-white text-primary hover:bg-slate-100 text-center font-bold rounded-lg transition shadow-lg">Mua Gói Năm Ngay</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="py-20 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at center, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10 text-white">
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6">Sẵn sàng để bùng nổ tương tác?</h2>
+            <p class="text-xl text-blue-100 mb-10">Đừng để đối thủ vượt mặt bạn vì họ dùng AI. Hãy là người dẫn đầu xu hướng ngay hôm nay.</p>
+            <a href="https://app.aistudiomape.us/register" class="inline-block px-10 py-5 bg-white text-primary text-xl font-bold rounded-xl hover:scale-105 transition shadow-2xl">
+                Truy cập AI Studio Miễn Phí
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 font-bold text-xl text-slate-800">
+                <div class="bg-primary text-white p-1.5 rounded-lg text-sm">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                AI Studio
+            </div>
+            <div class="flex gap-6 text-sm font-medium text-slate-500">
+                <a href="#" class="hover:text-primary transition">Điều khoản sử dụng</a>
+                <a href="#" class="hover:text-primary transition">Chính sách bảo mật</a>
+                <a href="https://aistudiomape.us/blog" class="hover:text-primary transition">Blog</a>
+                <a href="#" class="hover:text-primary transition">Liên hệ</a>
+            </div>
+            <p class="text-sm text-slate-400">© 2026 AI Studio. Designed for Creators.</p>
+        </div>
     </footer>
 </body>
 </html>
