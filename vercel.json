@@ -1,0 +1,12 @@
+﻿{
+  "rewrites": [
+    {
+      "source": "/blog",
+      "destination": "https://app.aistudiomape.us/blog"
+    },
+    {
+      "source": "/blog/:match*",
+      "destination": "https://app.aistudiomape.us/blog/:match*"
+    }
+  ]
+}
