@@ -28,6 +28,7 @@
         .hero-bg { background-image: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1) 0%, transparent 40%), radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.1) 0%, transparent 40%); }
         .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.8); }
     </style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body class="font-sans text-slate-600 antialiased bg-slate-50">
 
@@ -87,13 +88,28 @@
             
             <p class="mt-6 text-sm text-slate-400">Không yêu cầu thẻ tín dụng • Hủy bất cứ lúc nào</p>
 
-            <!-- Mockup Dashboard Image (Placeholder) -->
-            <div class="mt-20 relative max-w-5xl mx-auto">
-                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30"></div>
-                <div class="relative bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden aspect-video flex items-center justify-center bg-slate-50">
-                    <div class="text-center">
-                        <i class="fa-solid fa-laptop-code text-6xl text-slate-300 mb-4"></i>
-                        <p class="text-slate-400 font-medium">Giao diện Bảng điều khiển Trực quan</p>
+            <!-- Mockup Dashboard Image Slider -->
+            <div class="mt-20 relative max-w-5xl mx-auto group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 transition group-hover:opacity-60 duration-500"></div>
+                <div class="relative bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden">
+                    <div class="border-b border-slate-100 bg-slate-50 p-4 flex items-center gap-2">
+                        <div class="w-3.5 h-3.5 rounded-full bg-red-400"></div>
+                        <div class="w-3.5 h-3.5 rounded-full bg-yellow-400"></div>
+                        <div class="w-3.5 h-3.5 rounded-full bg-green-400"></div>
+                        <div class="ml-4 text-xs font-medium text-slate-400 tracking-wider">app.aistudiomape.us</div>
+                    </div>
+                    <!-- Swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="/assets/dashboard-1.png" alt="Bảng điều khiển" class="w-full h-auto object-cover"></div>
+                            <div class="swiper-slide"><img src="/assets/dashboard-2.png" alt="Tách video thành văn bản" class="w-full h-auto object-cover"></div>
+                            <div class="swiper-slide"><img src="/assets/dashboard-3.png" alt="Viết kịch bản viral" class="w-full h-auto object-cover"></div>
+                            <div class="swiper-slide"><img src="/assets/dashboard-4.png" alt="Tải video về máy" class="w-full h-auto object-cover"></div>
+                            <div class="swiper-slide"><img src="/assets/dashboard-5.png" alt="Tạo giọng nói AI" class="w-full h-auto object-cover"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next !text-primary !scale-75 opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                        <div class="swiper-button-prev !text-primary !scale-75 opacity-0 group-hover:opacity-100 transition duration-300"></div>
                     </div>
                 </div>
             </div>
@@ -267,5 +283,28 @@
             <p class="text-sm text-slate-400">© 2026 AI Studio. Designed for Creators.</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 0,
+            centeredSlides: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            loop: true,
+            effect: "fade",
+            fadeEffect: { crossFade: true }
+        });
+    </script>
 </body>
 </html>
