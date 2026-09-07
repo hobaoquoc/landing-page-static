@@ -1,12 +1,3 @@
 {
-  "rewrites": [
-    {
-      "source": "/blog",
-      "destination": "https://app.aistudiomape.us/blog"
-    },
-    {
-      "source": "/blog/(.*)",
-      "destination": "https://app.aistudiomape.us/blog/$1"
-    }
-  ]
+  "cleanUrls": true
 }
