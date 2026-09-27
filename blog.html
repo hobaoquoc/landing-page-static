@@ -337,7 +337,7 @@
             container.innerHTML = posts.map(post => {
                 const readTime = Math.ceil((post.content ? post.content.split(/\s+/).length : 200) / 200);
                 const thumbnailHtml = post.thumbnail 
-                    ? `<img src="${post.thumbnail}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full bg-slate-100 flex items-center justify-center text-slate-300\\'><i class=\\'fa-solid fa-sparkles text-3xl\\'></i></div>'" />`
+                    ? `<img src="${post.thumbnail}" alt="${post.title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full bg-slate-100 flex items-center justify-center text-slate-300\\'><i class=\\'fa-solid fa-sparkles text-3xl\\'></i></div>'" />`
                     : `<div class="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center text-blue-300 group-hover:scale-105 transition duration-300"><i class="fa-solid fa-sparkles text-4xl"></i></div>`;
 
                 return `
@@ -403,26 +403,56 @@
             window.scrollTo(0, 0);
         }
 
-        // Khởi động
+        // Khởi động với kỹ thuật Stale-While-Revalidate (Hiển thị tức thì 0ms từ Cache)
         async function initBlog() {
             const slug = getPostSlug();
 
             try {
                 if (slug) {
-                    // Fetch chi tiết bài viết
+                    const cacheKey = `mapeone_post_${slug}`;
+                    const cached = sessionStorage.getItem(cacheKey);
+                    if (cached) {
+                        try {
+                            const parsed = JSON.parse(cached);
+                            renderPostDetail(parsed);
+                        } catch (e) {}
+                    }
+
+                    // Fetch ngầm cập nhật bài viết mới nhất
                     const res = await fetch(`${API_BASE}/api/public/blog/${slug}`);
                     const data = await res.json();
                     if (data.status === 'success' && data.data) {
+                        sessionStorage.setItem(cacheKey, JSON.stringify(data.data));
                         renderPostDetail(data.data);
                         return;
                     }
                 }
 
-                // Nếu không có slug hoặc slug không tìm thấy -> fetch danh sách bài viết
+                // Chế độ xem danh sách: Kiểm tra cache tức thì
+                const listCacheKey = 'mapeone_blog_posts_cache_v2';
+                const cachedList = sessionStorage.getItem(listCacheKey);
+                let hasRenderedCache = false;
+
+                if (cachedList) {
+                    try {
+                        const parsed = JSON.parse(cachedList);
+                        if (Array.isArray(parsed) && parsed.length > 0) {
+                            allPosts = parsed;
+                            renderPosts(allPosts);
+                            document.getElementById('blog-loading').classList.add('hidden');
+                            document.getElementById('blog-detail-view').classList.add('hidden');
+                            document.getElementById('blog-list-view').classList.remove('hidden');
+                            hasRenderedCache = true;
+                        }
+                    } catch (e) {}
+                }
+
+                // Fetch mạng ngầm (hoặc lần đầu) để lấy danh sách mới nhất
                 const res = await fetch(`${API_BASE}/api/public/blog`);
                 const data = await res.json();
                 if (data.status === 'success') {
                     allPosts = data.data || [];
+                    sessionStorage.setItem(listCacheKey, JSON.stringify(allPosts));
                     renderPosts(allPosts);
                 }
 
@@ -432,12 +462,15 @@
 
             } catch (err) {
                 console.error('Lỗi tải dữ liệu blog:', err);
-                document.getElementById('blog-loading').innerHTML = `
-                    <div class="text-center p-8">
-                        <p class="text-red-500 font-bold mb-2">Không thể tải bài viết từ máy chủ.</p>
-                        <a href="/blog" class="text-primary underline text-sm">Tải lại trang</a>
-                    </div>
-                `;
+                const listCacheKey = 'mapeone_blog_posts_cache_v2';
+                if (!sessionStorage.getItem(listCacheKey)) {
+                    document.getElementById('blog-loading').innerHTML = `
+                        <div class="text-center p-8">
+                            <p class="text-red-500 font-bold mb-2">Không thể tải bài viết từ máy chủ.</p>
+                            <a href="/blog" class="text-primary underline text-sm">Tải lại trang</a>
+                        </div>
+                    `;
+                }
             }
         }
 
