@@ -156,7 +156,7 @@
                         </div>
                     </div>
 
-                    <a href="/bang-gia" class="hover:text-primary transition flex items-center h-full">Bảng giá</a>
+                    <a href="#pricing" class="hover:text-primary transition flex items-center h-full">Bảng giá</a>
                     <a href="/blog" class="hover:text-primary transition flex items-center h-full">Blog</a>
                 </div>
                 <div class="flex items-center gap-3">
@@ -321,46 +321,24 @@
         </div>
     </section>
 
-    <!-- Pricing (Static) -->
-    <section id="pricing" class="py-24 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Đầu tư nhỏ, Lợi nhuận khổng lồ</h2>
-            <p class="text-lg text-slate-400 mb-16 max-w-2xl mx-auto">Chọn gói phù hợp với nhu cầu sản xuất nội dung của bạn. Chi phí chỉ bằng 1/10 thuê Editor.</p>
+    <!-- Dynamic Pricing Section (Loaded from Database) -->
+    <section id="pricing" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.45) 0%, transparent 60%);"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-400 text-xs font-bold mb-4 uppercase tracking-wider">
+                <i class="fa-solid fa-sparkles"></i> Bảng giá minh bạch
+            </div>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">Đầu tư nhỏ, Lợi nhuận khổng lồ</h2>
+            <p class="text-base md:text-lg text-slate-400 mb-10 max-w-2xl mx-auto">Chọn gói phù hợp với nhu cầu sản xuất nội dung của bạn. Chi phí chỉ bằng 1/10 thuê Editor.</p>
 
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
-                <!-- Basic Plan -->
-                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
-                    <h3 class="text-2xl font-bold mb-2">Gói Cơ Bản (Theo tháng)</h3>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-5xl font-extrabold">20$</span>
-                        <span class="text-slate-400">/ tháng</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Mở khóa toàn bộ công cụ AI</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Hỗ trợ kỹ thuật 24/7</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Thanh toán linh hoạt hàng tháng</li>
-                    </ul>
-                    <a href="https://app.mapeone.com/register" class="block w-full py-3 px-4 bg-slate-700 hover:bg-slate-600 text-center font-bold rounded-lg transition">Bắt đầu ngay</a>
-                </div>
+            <!-- Dynamic Product Selector Tabs -->
+            <div id="pricing-tabs-container" class="flex flex-wrap items-center justify-center mb-10">
+                <!-- Injected dynamically by pricing.js -->
+            </div>
 
-                <!-- Pro Plan -->
-                <div class="bg-gradient-to-b from-primary to-blue-800 rounded-2xl p-8 border border-blue-500 relative transform md:-translate-y-4 shadow-2xl">
-                    <div class="absolute top-0 right-8 transform -translate-y-1/2">
-                        <span class="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Tiết kiệm 50%</span>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2">Gói Pro (Theo năm)</h3>
-                    <div class="flex items-baseline gap-2 mb-6">
-                        <span class="text-5xl font-extrabold">10$</span>
-                        <span class="text-blue-200">/ tháng (Thanh toán cả năm)</span>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Mở khóa toàn bộ công cụ AI</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Hỗ trợ kỹ thuật ưu tiên (VIP)</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Truy cập sớm các tính năng mới</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-yellow-300"></i> Tiết kiệm tối đa chi phí dài hạn</li>
-                    </ul>
-                    <a href="https://app.mapeone.com/register" class="block w-full py-3 px-4 bg-white text-primary hover:bg-slate-100 text-center font-bold rounded-lg transition shadow-lg">Mua Gói Năm Ngay</a>
-                </div>
+            <!-- Dynamic Pricing Packages Grid -->
+            <div id="pricing-cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left items-stretch">
+                <!-- Injected dynamically by pricing.js -->
             </div>
         </div>
     </section>
@@ -415,5 +393,6 @@
     </script>
     
     <script src="/assets/auth-nav.js"></script>
+    <script src="/assets/pricing.js"></script>
 </body>
 </html>
