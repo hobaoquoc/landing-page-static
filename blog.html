@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog MapeOne - Kiến Thức AI, Video Viral & Tối Ưu Nội Dung</title>
+    <meta name="description" content="Khám phá các bí quyết ứng dụng Trí tuệ Nhân tạo để tạo video triệu view, tách chữ từ video, nhân bản giọng nói và tăng tốc độ phát triển nội dung số cùng MapeOne.">
+    <link rel="canonical" href="https://mapeone.com/blog">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Blog MapeOne - Kiến Thức AI & Video Viral">
+    <meta property="og:description" content="Bí quyết ứng dụng AI tăng trưởng kênh TikTok, Reels, Shorts và tối ưu hóa thời gian sản xuất video.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mapeone.com/blog">
+    
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#1E40AF',
+                        dark: '#0F172A'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        /* Markdown Styling */
+        .markdown-content h1 { font-size: 2rem; font-weight: 800; margin-top: 2rem; margin-bottom: 1rem; color: #0F172A; }
+        .markdown-content h2 { font-size: 1.5rem; font-weight: 800; margin-top: 2rem; margin-bottom: 0.75rem; color: #1E293B; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.5rem; }
+        .markdown-content h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #334155; }
+        .markdown-content p { margin-bottom: 1.25rem; line-height: 1.75; color: #475569; }
+        .markdown-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .markdown-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.25rem; color: #475569; }
+        .markdown-content li { margin-bottom: 0.5rem; }
+        .markdown-content blockquote { border-left: 4px solid #2563EB; background: #EFF6FF; padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 0.75rem 0.75rem 0; font-style: italic; color: #1E40AF; }
+        .markdown-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.875rem; }
+        .markdown-content th, .markdown-content td { border: 1px solid #CBD5E1; padding: 0.75rem; text-align: left; }
+        .markdown-content th { background-color: #F8FAFC; font-weight: 700; color: #1E293B; }
+        .markdown-content a { color: #2563EB; font-weight: 600; text-decoration: underline; }
+        .markdown-content a:hover { color: #1D4ED8; }
+        .markdown-content img { max-width: 100%; border-radius: 1rem; margin: 1.5rem auto; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Marked.js để parse Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="font-sans text-slate-600 antialiased bg-slate-50 flex flex-col min-h-screen">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="https://mapeone.com/" class="flex items-center gap-2 font-bold text-2xl text-slate-900 tracking-tight">
+                    <img src="./assets/logo.png" alt="MapeOne Logo" class="w-10 h-10 object-contain drop-shadow-md rounded-xl" />
+                    MapeOne
+                </a>
+                <div class="hidden md:flex items-center space-x-8 font-medium text-sm text-slate-600 h-full">
+                    
+                    <!-- SẢN PHẨM DROPDOWN -->
+                    <div class="group relative flex items-center h-full cursor-pointer">
+                        <div class="hover:text-primary transition flex items-center gap-1.5 h-full">
+                            Sản phẩm <i class="fa-solid fa-chevron-down text-[10px] opacity-70 group-hover:rotate-180 transition-transform"></i>
+                        </div>
+                        
+                        <div class="absolute left-0 top-[60px] w-[650px] bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 p-6">
+                            <div class="grid grid-cols-2 gap-x-2 gap-y-1">
+                                <a href="/speech-to-text" class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition">
+                                        <i class="fa-solid fa-file-lines"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-[15px] group-hover/item:text-primary transition">Tách video thành văn bản</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Trích xuất văn bản tự động</p>
+                                    </div>
+                                </a>
+                                <a href="/viral-script" class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition">
+                                        <i class="fa-solid fa-pen-nib"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-[15px] group-hover/item:text-primary transition">Viết kịch bản video</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Kịch bản thu hút triệu view</p>
+                                    </div>
+                                </a>
+                                <a href="/video-downloader" class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition">
+                                        <i class="fa-solid fa-download"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-[15px] group-hover/item:text-primary transition">Tải video không logo</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Tiktok, Facebook, Youtube</p>
+                                    </div>
+                                </a>
+                                <a href="/text-to-speech" class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition">
+                                        <i class="fa-solid fa-microphone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-[15px] group-hover/item:text-primary transition">Chuyển văn bản thành giọng nói</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Giọng đọc AI đa cảm xúc</p>
+                                    </div>
+                                </a>
+                                <a href="/auto-ai-video" class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition">
+                                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-[15px] group-hover/item:text-primary transition">Tạo video tự động</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Tạo video hàng loạt</p>
+                                    </div>
+                                </a>
+                                <a href="/voice-clone" class="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 transition group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 group-hover/item:scale-110 transition">
+                                        <i class="fa-solid fa-fingerprint"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900 text-[15px] group-hover/item:text-primary transition">Nhân bản giọng nói</h4>
+                                        <p class="text-xs text-slate-500 mt-0.5 leading-relaxed">Clone voice chuẩn xác</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="/bang-gia" class="hover:text-primary transition flex items-center h-full">Bảng giá</a>
+                    <a href="/blog" class="text-primary font-bold transition flex items-center h-full">Blog</a>
+                </div>
+
+                <div class="flex items-center gap-4" id="auth-buttons-container">
+                    <!-- auth-nav.js sẽ chèn nút đăng nhập / app -->
+                    <a href="https://mapeone.com/dashboard" class="px-5 py-2.5 bg-primary text-white font-bold rounded-xl hover:bg-secondary transition shadow-sm text-sm">
+                        Vào Ứng dụng
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-1 pt-20">
+        
+        <!-- LOADING SPINNER -->
+        <div id="blog-loading" class="py-32 flex flex-col items-center justify-center">
+            <div class="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+            <p class="text-slate-500 font-medium text-sm">Đang tải dữ liệu bài viết...</p>
+        </div>
+
+        <!-- 1. VIEW DANH SÁCH BÀI VIẾT (LIST VIEW) -->
+        <div id="blog-list-view" class="hidden">
+            <!-- Hero -->
+            <div class="bg-white border-b border-slate-200 py-16 px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-600 border border-blue-100 uppercase tracking-wider mb-4">
+                        MapeOne Knowledge Hub
+                    </span>
+                    <h1 class="text-3xl sm:text-5xl font-black text-slate-900 mb-4 tracking-tight">
+                        Blog Kiến Thức AI & Video Viral
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                        Thủ thuật thực chiến, công thức kịch bản triệu view và giải pháp tự động hóa sản xuất nội dung số với hệ sinh thái AI MapeOne.
+                    </p>
+
+                    <!-- Search Input -->
+                    <div class="max-w-md mx-auto mt-8 relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            placeholder="Tìm kiếm bài viết theo từ khóa..."
+                            class="w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posts Grid -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+                <div id="posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Injected by JavaScript -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="hidden text-center py-20 bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa-solid fa-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Chưa tìm thấy bài viết phù hợp</h3>
+                    <p class="text-slate-500 text-sm max-w-md mx-auto">Vui lòng thử lại với từ khóa khác hoặc quay lại sau để cập nhật bài viết mới.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. VIEW CHI TIẾT BÀI VIẾT (SINGLE POST VIEW) -->
+        <div id="blog-detail-view" class="hidden bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <!-- Breadcrumbs & Back -->
+                <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-100 text-sm">
+                    <a href="/blog" class="text-slate-500 hover:text-primary font-semibold flex items-center gap-2 transition">
+                        <i class="fa-solid fa-arrow-left"></i> Tất cả bài viết
+                    </a>
+                    <span class="text-xs text-slate-400 font-mono" id="post-slug-display">/blog/...</span>
+                </div>
+
+                <!-- Thumbnail -->
+                <div id="post-thumbnail-container" class="mb-8 rounded-3xl overflow-hidden shadow-sm border border-slate-100 hidden">
+                    <img id="post-thumbnail" src="" alt="" class="w-full h-64 sm:h-[420px] object-cover" />
+                </div>
+
+                <!-- Title & Meta -->
+                <h1 id="post-title" class="text-3xl sm:text-5xl font-black text-slate-900 mb-6 leading-tight tracking-tight">
+                    <!-- Tiêu đề bài viết -->
+                </h1>
+
+                <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-500 mb-10 pb-6 border-b border-slate-100">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-regular fa-calendar text-slate-400"></i>
+                        <span id="post-date">Ngày đăng</span>
+                    </span>
+                    <span>•</span>
+                    <span class="flex items-center gap-2">
+                        <i class="fa-regular fa-clock text-slate-400"></i>
+                        <span id="post-read-time">~5 phút đọc</span>
+                    </span>
+                </div>
+
+                <!-- Markdown Content Container -->
+                <article id="post-content" class="markdown-content text-slate-800 text-base sm:text-lg leading-relaxed">
+                    <!-- Injected by marked.js -->
+                </article>
+
+                <!-- CTA BOX CUỐI BÀI -->
+                <div class="mt-16 p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 text-white shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="relative z-10">
+                        <span class="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold text-blue-200 uppercase tracking-wider mb-4 inline-block">
+                            ⚡ Trải nghiệm MapeOne ngay
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-black mb-3">
+                            Sáng tạo Video Chuyên Nghiệp Tự Động Trong Vài Phút
+                        </h3>
+                        <p class="text-blue-100 text-sm sm:text-base mb-6 max-w-xl">
+                            Tách chữ từ video STT, tạo kịch bản viral, làm video tự động với giọng đọc AI tiếng Việt đa cảm xúc và phụ đề Karaoke cuốn hút.
+                        </p>
+                        <div class="flex flex-wrap items-center gap-4">
+                            <a href="https://mapeone.com/dashboard" class="px-6 py-3 bg-white text-blue-900 font-black rounded-xl hover:bg-blue-50 shadow-lg transition flex items-center gap-2 text-sm">
+                                Dùng thử Miễn Phí <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                            <a href="/bang-gia" class="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl border border-white/20 transition text-sm">
+                                Xem bảng giá
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-12 border-t border-slate-200 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="https://mapeone.com/" class="flex items-center gap-2 font-bold text-xl text-slate-800 hover:opacity-80 transition">
+                <div class="bg-primary text-white p-1.5 rounded-lg text-sm">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                MapeOne
+            </a>
+            <div class="flex gap-6 text-sm font-medium text-slate-500">
+                <a href="#" class="hover:text-primary transition">Điều khoản sử dụng</a>
+                <a href="#" class="hover:text-primary transition">Chính sách bảo mật</a>
+                <a href="/blog" class="text-primary font-bold hover:underline transition">Blog</a>
+                <a href="#" class="hover:text-primary transition">Liên hệ</a>
+            </div>
+            <p class="text-sm text-slate-400">© 2026 MapeOne. Designed for Creators.</p>
+        </div>
+    </footer>
+
+    <!-- LOGIC FETCH VÀ RENDER BLOG -->
+    <script>
+        const API_BASE = 'https://core.mapeone.com';
+        let allPosts = [];
+
+        // Lấy slug từ query param ?slug= hoặc path
+        function getPostSlug() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slugParam = urlParams.get('slug');
+            if (slugParam) return slugParam;
+            
+            // Hỗ trợ path /blog/ten-bai-viet nếu có
+            const pathname = window.location.pathname;
+            const match = pathname.match(/\/blog\/(.+)$/);
+            if (match && match[1] && match[1] !== 'blog.html') {
+                return match[1].replace('.html', '');
+            }
+            return null;
+        }
+
+        // Định dạng ngày tháng
+        function formatDate(dateStr) {
+            if (!dateStr) return 'Mới đăng';
+            try {
+                const d = new Date(dateStr);
+                return d.toLocaleDateString('vi-VN', { year: 'numeric', month: 'long', day: 'numeric' });
+            } catch (e) {
+                return dateStr;
+            }
+        }
+
+        // Render danh sách bài viết
+        function renderPosts(posts) {
+            const container = document.getElementById('posts-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (!posts || posts.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            container.innerHTML = posts.map(post => {
+                const readTime = Math.ceil((post.content ? post.content.split(/\s+/).length : 200) / 200);
+                const thumbnailHtml = post.thumbnail 
+                    ? `<img src="${post.thumbnail}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.parentElement.innerHTML='<div class=\\'w-full h-full bg-slate-100 flex items-center justify-center text-slate-300\\'><i class=\\'fa-solid fa-sparkles text-3xl\\'></i></div>'" />`
+                    : `<div class="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center text-blue-300 group-hover:scale-105 transition duration-300"><i class="fa-solid fa-sparkles text-4xl"></i></div>`;
+
+                return `
+                    <a href="/blog?slug=${encodeURIComponent(post.slug)}" class="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-200/80 transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1">
+                        <div class="h-48 w-full overflow-hidden bg-slate-100 border-b border-slate-100">
+                            ${thumbnailHtml}
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col">
+                            <div class="flex items-center gap-2 text-xs text-slate-400 mb-3 font-medium">
+                                <i class="fa-regular fa-calendar"></i> ${formatDate(post.created_at)}
+                                <span class="mx-1">•</span>
+                                <i class="fa-regular fa-clock"></i> ~${readTime} phút đọc
+                            </div>
+                            <h2 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition leading-snug line-clamp-2">
+                                ${post.title}
+                            </h2>
+                            <p class="text-slate-500 text-xs sm:text-sm line-clamp-3 mb-4 leading-relaxed">
+                                ${post.description || ''}
+                            </p>
+                            <div class="mt-auto font-bold text-primary text-xs flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                                Đọc bài viết <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                            </div>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
+
+        // Render chi tiết bài viết
+        function renderPostDetail(post) {
+            document.title = `${post.title} - MapeOne`;
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) metaDesc.setAttribute('content', post.description || '');
+
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-slug-display').textContent = `/blog/${post.slug}`;
+            document.getElementById('post-date').textContent = formatDate(post.created_at);
+            
+            const words = post.content ? post.content.split(/\s+/).length : 200;
+            document.getElementById('post-read-time').textContent = `~${Math.ceil(words / 200)} phút đọc`;
+
+            const thumbContainer = document.getElementById('post-thumbnail-container');
+            const thumbImg = document.getElementById('post-thumbnail');
+            if (post.thumbnail) {
+                thumbImg.src = post.thumbnail;
+                thumbImg.alt = post.title;
+                thumbContainer.classList.remove('hidden');
+            } else {
+                thumbContainer.classList.add('hidden');
+            }
+
+            // Parse Markdown sang HTML an toàn
+            const contentDiv = document.getElementById('post-content');
+            if (window.marked && post.content) {
+                contentDiv.innerHTML = marked.parse(post.content);
+            } else {
+                contentDiv.innerHTML = `<p>${post.content || ''}</p>`;
+            }
+
+            document.getElementById('blog-loading').classList.add('hidden');
+            document.getElementById('blog-list-view').classList.add('hidden');
+            document.getElementById('blog-detail-view').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        // Khởi động
+        async function initBlog() {
+            const slug = getPostSlug();
+
+            try {
+                if (slug) {
+                    // Fetch chi tiết bài viết
+                    const res = await fetch(`${API_BASE}/api/public/blog/${slug}`);
+                    const data = await res.json();
+                    if (data.status === 'success' && data.data) {
+                        renderPostDetail(data.data);
+                        return;
+                    }
+                }
+
+                // Nếu không có slug hoặc slug không tìm thấy -> fetch danh sách bài viết
+                const res = await fetch(`${API_BASE}/api/public/blog`);
+                const data = await res.json();
+                if (data.status === 'success') {
+                    allPosts = data.data || [];
+                    renderPosts(allPosts);
+                }
+
+                document.getElementById('blog-loading').classList.add('hidden');
+                document.getElementById('blog-detail-view').classList.add('hidden');
+                document.getElementById('blog-list-view').classList.remove('hidden');
+
+            } catch (err) {
+                console.error('Lỗi tải dữ liệu blog:', err);
+                document.getElementById('blog-loading').innerHTML = `
+                    <div class="text-center p-8">
+                        <p class="text-red-500 font-bold mb-2">Không thể tải bài viết từ máy chủ.</p>
+                        <a href="/blog" class="text-primary underline text-sm">Tải lại trang</a>
+                    </div>
+                `;
+            }
+        }
+
+        // Lọc bài viết realtime
+        document.getElementById('search-input')?.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            if (!query) {
+                renderPosts(allPosts);
+                return;
+            }
+            const filtered = allPosts.filter(p => 
+                (p.title && p.title.toLowerCase().includes(query)) ||
+                (p.description && p.description.toLowerCase().includes(query)) ||
+                (p.slug && p.slug.toLowerCase().includes(query))
+            );
+            renderPosts(filtered);
+        });
+
+        document.addEventListener('DOMContentLoaded', initBlog);
+    </script>
+    <script src="/assets/auth-nav.js"></script>
+</body>
+</html>
