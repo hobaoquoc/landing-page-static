@@ -35,15 +35,17 @@
     var creditsFormatted = typeof session.credits === 'number' ? session.credits.toLocaleString() : (session.credits || '0');
     var isPaid = Boolean(session.isPaidUser);
 
-    // Format badge
+    // Format badge - Vào ứng dụng
     var badgeHtml = isPaid
-      ? '<a href="https://app.mapeone.com/dashboard/upgrade" title="Nâng cấp hoặc mua thêm lượt" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-blue-200 bg-blue-50/90 text-blue-700 hover:bg-blue-100 transition-colors shadow-xs">' +
+      ? '<a href="https://app.mapeone.com/dashboard" title="Vào ứng dụng MapeOne" class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-200 bg-blue-50/90 text-blue-700 hover:bg-blue-100 transition-colors shadow-xs">' +
           '<i class="fa-solid fa-coins text-amber-500 text-sm"></i>' +
           '<span class="font-bold text-blue-800 text-xs md:text-sm">' + creditsFormatted + '</span>' +
+          '<span class="text-blue-300">|</span>' +
+          '<span class="font-bold text-blue-700 text-xs">Vào ứng dụng</span>' +
         '</a>'
-      : '<a href="https://app.mapeone.com/dashboard/upgrade" title="Gói trải nghiệm miễn phí" class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-blue-200 bg-blue-50/90 text-blue-700 hover:bg-blue-100 transition-colors shadow-xs">' +
-          '<span class="px-1.5 py-0.5 bg-blue-600 text-white rounded text-[10px] font-bold uppercase tracking-wider">DÙNG THỬ</span>' +
-          '<span class="font-semibold text-blue-900 text-xs">Gói Trải Nghiệm</span>' +
+      : '<a href="https://app.mapeone.com/dashboard" title="Vào ứng dụng MapeOne" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-blue-200 bg-blue-50/90 text-blue-700 hover:bg-blue-100 transition-colors shadow-xs">' +
+          '<i class="fa-solid fa-arrow-right-to-bracket text-blue-600 text-xs"></i>' +
+          '<span class="font-bold text-blue-800 text-xs md:text-sm">Vào ứng dụng</span>' +
         '</a>';
 
     var avatarHtml = photo
