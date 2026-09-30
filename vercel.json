@@ -1,5 +1,22 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/dashboard",
+      "destination": "https://app.mapeone.com/dashboard",
+      "permanent": false
+    },
+    {
+      "source": "/login",
+      "destination": "https://app.mapeone.com/login",
+      "permanent": false
+    },
+    {
+      "source": "/register",
+      "destination": "https://app.mapeone.com/register",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/blog/:slug+",

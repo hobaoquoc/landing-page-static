@@ -20,10 +20,12 @@
     if (!session || (!session.displayName && !session.email && !session.uid)) return;
 
     // Find the right auth buttons container in navbar
-    var authLinks = document.querySelectorAll('nav a[href*="app.mapeone.com/login"], nav a[href*="app.mapeone.com/register"]');
-    var container = null;
-    if (authLinks.length > 0) {
-      container = authLinks[0].closest('.flex.items-center.gap-3') || authLinks[0].parentElement;
+    var container = document.getElementById('auth-buttons-container');
+    if (!container) {
+      var authLinks = document.querySelectorAll('nav a[href*="app.mapeone.com/login"], nav a[href*="app.mapeone.com/register"], nav a[href*="app.mapeone.com/dashboard"]');
+      if (authLinks.length > 0) {
+        container = authLinks[0].closest('.flex.items-center.gap-3, .flex.items-center.gap-4') || authLinks[0].parentElement;
+      }
     }
 
     if (!container) return;
