@@ -297,18 +297,23 @@
         const API_BASE = 'https://core.mapeone.com';
         let allPosts = [];
 
-        // Lấy slug từ query param ?slug= hoặc path
+        // Lấy slug từ path /blog/ten-bai-viet hoặc query param ?slug=
         function getPostSlug() {
+            // 1. Ưu tiên lấy từ đường dẫn đẹp /blog/ten-bai-viet
+            const pathname = window.location.pathname;
+            const match = pathname.match(/\/blog\/([^/?#]+)/);
+            if (match && match[1]) {
+                const candidate = decodeURIComponent(match[1].replace(/\.html$/, '').trim());
+                if (candidate && candidate !== 'blog' && candidate !== 'index') {
+                    return candidate;
+                }
+            }
+
+            // 2. Dự phòng lấy từ query param ?slug=
             const urlParams = new URLSearchParams(window.location.search);
             const slugParam = urlParams.get('slug');
-            if (slugParam) return slugParam;
-            
-            // Hỗ trợ path /blog/ten-bai-viet nếu có
-            const pathname = window.location.pathname;
-            const match = pathname.match(/\/blog\/(.+)$/);
-            if (match && match[1] && match[1] !== 'blog.html') {
-                return match[1].replace('.html', '');
-            }
+            if (slugParam) return decodeURIComponent(slugParam.trim());
+
             return null;
         }
 
@@ -342,7 +347,7 @@
                     : `<div class="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center text-blue-300 group-hover:scale-105 transition duration-300"><i class="fa-solid fa-sparkles text-4xl"></i></div>`;
 
                 return `
-                    <a href="/blog?slug=${encodeURIComponent(post.slug)}" class="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-200/80 transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1">
+                    <a href="/blog/${encodeURIComponent(post.slug)}" class="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-200/80 transition-all duration-300 flex flex-col overflow-hidden group hover:-translate-y-1">
                         <div class="h-48 w-full overflow-hidden bg-slate-100 border-b border-slate-100">
                             ${thumbnailHtml}
                         </div>
@@ -373,8 +378,16 @@
             const metaDesc = document.querySelector('meta[name="description"]');
             if (metaDesc) metaDesc.setAttribute('content', post.description || '');
 
+            // Nếu người dùng truy cập từ URL query ?slug=..., tự động chuyển sang Pretty URL /blog/{slug}
+            const cleanPath = `/blog/${post.slug}`;
+            if (window.location.search.includes('slug=') || window.location.pathname.endsWith('blog.html')) {
+                try {
+                    window.history.replaceState({ slug: post.slug }, post.title, cleanPath);
+                } catch (e) {}
+            }
+
             document.getElementById('post-title').textContent = post.title;
-            document.getElementById('post-slug-display').textContent = `/blog/${post.slug}`;
+            document.getElementById('post-slug-display').textContent = cleanPath;
             document.getElementById('post-date').textContent = formatDate(post.created_at);
             
             const words = post.content ? post.content.split(/\s+/).length : 200;
