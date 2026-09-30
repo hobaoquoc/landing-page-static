@@ -2,8 +2,8 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/blog/:slug*",
-      "destination": "/blog.html"
+      "source": "/blog/:slug+",
+      "destination": "/blog"
     }
   ]
 }
